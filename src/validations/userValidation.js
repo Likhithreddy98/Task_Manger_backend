@@ -1,0 +1,11 @@
+const Joi = require('joi');
+
+const updateRoleSchema = Joi.object({
+  role: Joi.string().valid('user', 'admin').required().messages({
+    'any.only': 'Role must be either user or admin',
+    'any.required': 'Role is required',
+    'string.empty': 'Role is required',
+  }),
+});
+
+module.exports = { updateRoleSchema };
